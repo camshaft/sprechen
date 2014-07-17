@@ -1,0 +1,15 @@
+(ns sprechen
+  (require application)
+  (require cowboy))
+
+(defn+ start (backend port)
+  (application/ensure_all_started :cowboy)
+  (let*
+      (proto [{:port port}]
+       middlewares [:sprechen-middleware
+                    :sprechen-router
+                    :cowboy_handler]
+       opts [{:middlewares middlewares}
+             {:compress :true}
+             {:env [{:sprechen-backend backend}]}])
+    (cowboy/start_http backend 100 proto opts)))

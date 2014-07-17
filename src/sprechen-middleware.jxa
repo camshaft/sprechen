@@ -1,0 +1,9 @@
+(ns sprechen-middleware
+  (require joxa-core)
+  (require cowboy_req)
+  (require fast_key))
+
+(defn+ execute (req env)
+  (joxa-core/let
+    (req2 (cowboy_req/set_meta :sprechen-backend (fast_key/get :sprechen-backend env) req))
+     {:ok req2 env}))

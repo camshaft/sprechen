@@ -1,0 +1,11 @@
+(ns sprechen-router
+  (use (jxa-cowboy-router :only (get/2
+                                 post/2
+                                 put/2
+                                 delete/2
+                                 compile/1))))
+
+(get "/" :sprechen-res-root)
+(get "/:subgroup/:group" :sprechen-res-group)
+
+(compile sprechen-router)

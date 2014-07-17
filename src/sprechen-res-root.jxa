@@ -1,0 +1,10 @@
+(ns sprechen-res-root)
+
+(defn+ init (_ req args)
+  {:ok req args})
+
+(defn+ handle (req state)
+  {:ok req state})
+
+(defn+ terminate (reason req state)
+  :ok)

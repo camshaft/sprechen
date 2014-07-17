@@ -1,0 +1,11 @@
+{application, sprechen, [
+  {description, "high-performance translation api"},
+  {vsn, "0.1.0"},
+  {modules, []},
+  {registered, []},
+  {applications, [
+    kernel,
+    stdlib
+  ]},
+  {env, []}
+]}.
